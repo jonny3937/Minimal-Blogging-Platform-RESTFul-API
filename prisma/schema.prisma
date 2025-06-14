@@ -1,0 +1,42 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id                 Int    @id @default(autoincrement())
+  productTitle       String @map("product_title")
+  productDescription String @map("product_description")
+  productCost        Float  @map("product_cost")
+  unitsLeft          Int    @map("units_left")
+
+  @@map("products_table")
+}
+
+model User {
+  id            String   @id @default(uuid())
+  firstName     String
+  lastName      String
+  emailAddress  String   @unique
+  username      String   @unique
+
+  posts         Post[]   // one-to-many relationship
+}
+
+model Post {
+  id          String   @id @default(uuid())
+  title       String
+  content     String
+  createdAt   DateTime @default(now())
+  lastUpdated DateTime @updatedAt
+  isDeleted   Boolean  @default(false)
+
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+}
