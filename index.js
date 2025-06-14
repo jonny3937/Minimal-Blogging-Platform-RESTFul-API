@@ -246,5 +246,10 @@ app.delete('/products/:id', async (req, res) => {
 });
 // End of my product part
 
+app.get('/', (req, res) => {
+  res.send('coding is such intering also addictive');
+});
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`API running on port ${PORT}`));
