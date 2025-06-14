@@ -247,7 +247,7 @@ app.delete('/products/:id', async (req, res) => {
 // End of my product part
 
 app.get('/', (req, res) => {
-  res.send('coding is such intering also addictive');
+  res.send('coding is such interesting also addictive');
 });
 
 
