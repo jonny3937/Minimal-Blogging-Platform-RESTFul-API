@@ -75,7 +75,7 @@ app.put('/user/:id', async (req, res) => {
 
 
 
-//delere a user
+//delete a user
 app.delete('/users/:id', async (req, res) => {
   const { id } = req.params;
 
