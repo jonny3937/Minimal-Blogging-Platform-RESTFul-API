@@ -153,7 +153,7 @@ app.delete('/post/:id', async (req, res) => {
   }
 });
 
-/*my product part start here*/
+/*my product part starts here*/
 
 //my code for creating a new product 
 app.post('/products', async (req, res) => {
